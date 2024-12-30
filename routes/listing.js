@@ -44,6 +44,8 @@ router.post("/",validateListing,wrapAsync(async(req,res,next)=>{
     //     throw new ExpressError(404,result.error);
     //  }
      const newListing= new Listing(req.body.listing);
+     newListing.image = {url: req.body.listing.image, filename: "listingimage"};
+  
     await newListing.save();
     res.redirect("listings");
    
@@ -68,6 +70,12 @@ router.post("/",validateListing,wrapAsync(async(req,res,next)=>{
        //Update Route
        router.put("/:id",validateListing,wrapAsync(async (req,res)=>{
         
+        if (req.body.listing.image) {
+            req.body.listing.image = {
+                url: req.body.listing.image, 
+                filename: "listingimage" 
+            };
+        }
         let {id} =req.params;
         await Listing.findByIdAndUpdate(id,{...req.body.listing});
           res.redirect(`/listings/${id}`);

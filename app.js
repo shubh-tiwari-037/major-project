@@ -42,7 +42,7 @@ res.send("hi i am root ")
 
 
 app.use("/listings",listings);
-app.use("/listing/:id/reviews",reviews);
+app.use("/listings/:id/reviews",reviews);
 
 // const validateListing= (req,res,next)=>{
 //     let {error} =listingSchema.validate(req.body);
