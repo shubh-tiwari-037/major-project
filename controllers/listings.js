@@ -49,7 +49,7 @@ module.exports.createListing =async(req,res,next)=>{
         res.redirect("/listings");
     }
     let originalImageUrl = listing.image.url;
-    originalImageUrl=originalImageUrl.replace("/upload","/upload/w_250");
+    originalImageUrl=originalImageUrl.replace("/upload","/upload/e_blur:300/w_250");
     res.render("listings/edit.ejs", {listing, originalImageUrl});
    };
 
