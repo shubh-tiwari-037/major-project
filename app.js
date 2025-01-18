@@ -60,9 +60,9 @@ async function main(){
 }
 
 
-app.get("/",(req,res)=>{
-res.send("hi i am root ")
-});
+// app.get("/",(req,res)=>{
+// res.send("hi i am root ")
+// });
 
 app.use(session(sessionOptions));
 app.use(flash());
