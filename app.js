@@ -2,8 +2,6 @@ if(process.env.NODE_ENV !="production"){
     require('dotenv').config();
 }
 
-
-
 const express =require("express");
 const app=express();
 const mongoose=require("mongoose");
@@ -45,7 +43,8 @@ const sessionOptions ={
 };
 
 
-const MONGO_URL="mongodb://127.0.0.1:27017/wanderlust";
+// const MONGO_URL="mongodb://127.0.0.1:27017/wanderlust";
+const dburl = process.env.ATLASDB_URL;
 
 main()
 .then(()=>{
@@ -56,7 +55,7 @@ main()
 });
 
 async function main(){
-    await mongoose.connect(MONGO_URL);
+    await mongoose.connect(dburl);
 }
 
 
