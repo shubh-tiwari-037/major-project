@@ -15,5 +15,5 @@
     const marker = new mapboxgl.Marker({color :"red"})
     .setLngLat( listing.geometry.coordinates) //Listing.geometry
     .setPopup (new mapboxgl.Popup({offset: 25})
-    .setHTML(`<h4>${listing.location}</h4><p>Excat location provided after booking </p>`))
+    .setHTML(`<h4>${listing.title}</h4><p>Excat location provided after booking </p>`))
     .addTo(map);
